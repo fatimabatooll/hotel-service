@@ -4,6 +4,7 @@ package com.glc.hotelmanagemnt.Controller;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,6 +18,8 @@ import com.glc.hotelmanagemnt.Repository.HotelRespository;
 
 @RestController
 @RequestMapping("/hotel") // http://localhost:8080/hotel
+@CrossOrigin(origins = "http://localhost:3000") 
+
 public class HotelController {
   private final HotelRespository hotelRespository;
 
