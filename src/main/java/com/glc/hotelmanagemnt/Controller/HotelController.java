@@ -18,31 +18,30 @@ import com.glc.hotelmanagemnt.Repository.HotelRespository;
 @RestController
 @RequestMapping("/hotel") // http://localhost:8080/hotel
 public class HotelController {
-    private final HotelRespository hotelRespository;
+  private final HotelRespository hotelRespository;
 
-    public HotelController(HotelRespository hotelRespository){
-        this.hotelRespository = hotelRespository;
-    }
+  public HotelController(HotelRespository hotelRespository) {
+    this.hotelRespository = hotelRespository;
+  }
 
-   @PostMapping("/add")   // http://localhost:8080/hotel/add
-    public ResponseEntity<Hotel> addHotel(@RequestBody Hotel hotel) {
-    return  ResponseEntity.ok().body(hotelRespository.save(hotel));
-    }
+  @PostMapping("/add") // http://localhost:8080/hotel/add
+  public ResponseEntity<Hotel> addHotel(@RequestBody Hotel hotel) {
+    return ResponseEntity.ok().body(hotelRespository.save(hotel));
+  }
 
-    @GetMapping("/getall") // http://localhost:8080/hotel/getall
-    public List<Hotel> getHotelall(){
-        return hotelRespository.findAll();
-    }
-   
+  @GetMapping("/getall") // http://localhost:8080/hotel/getall
+  public List<Hotel> getHotelall() {
+    return hotelRespository.findAll();
+  }
 
-    @GetMapping("/getbyid/{id}") // http://localhost:8080/hotel/getbyid/{id}
-    public Hotel getHotelById(@PathVariable Long id){
-      return hotelRespository.findById(id).orElse(null);
-    }
+  @GetMapping("/getbyid/{id}") // http://localhost:8080/hotel/getbyid/{id}
+  public Hotel getHotelById(@PathVariable Long id) {
+    return hotelRespository.findById(id).orElse(null);
+  }
 
-      @DeleteMapping("/delete/{id}")  // http://localhost:8080/hotel/delete/{id} 
-   public void deleteBook(@PathVariable Long id) {
-      hotelRespository.deleteById(id);
-      
-   }
+  @DeleteMapping("/delete/{id}") // http://localhost:8080/hotel/delete/{id}
+  public void deleteBook(@PathVariable Long id) {
+    hotelRespository.deleteById(id);
+
+  }
 }

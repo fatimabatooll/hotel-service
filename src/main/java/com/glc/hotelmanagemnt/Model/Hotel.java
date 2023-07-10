@@ -16,25 +16,23 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-@Table(name="hotel")
+@Table(name = "hotel")
 public class Hotel {
-    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private Long id;
 
-    
-         
     private String name;
 
     @Column(columnDefinition = "TEXT")
     private String shortDescription;
-    
+
     @Column(columnDefinition = "TEXT")
-    private String LongDescription;
+    private String longDescription;
     private String imageLink;
     private String location;
     private String experience;
-    private boolean haspool;
-    private double price;
-    
+    private Boolean haspool;
+    private Double price;
+
 }
